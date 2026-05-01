@@ -18,6 +18,9 @@ df_processed = df[features].copy()
 
 # 4. Conversion date
 df_processed['month'] = pd.to_datetime(df_processed['month'], errors='coerce')
+df_processed["year"] = df_processed["month"].dt.year
+df_processed["month_num"] = df_processed["month"].dt.month
+
 
 # 5. Imputation
 organic_cols = ['resorganicstons', 'schoolorganictons', 'leavesorganictons', 'xmastreetons']
